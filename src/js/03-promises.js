@@ -8,13 +8,16 @@ refs.form.addEventListener('submit', onSubmit);
 
 function onSubmit(evt) {
   evt.preventDefault();
-  let counter = 1;
-  let delay = Number(refs.form.elements.delay.value);
   
-  for (let i = 0; i < Number(refs.form.elements.amount.value); i++) {
+  let delay = Number(refs.form.elements.delay.value);
+  const step = Number(refs.form.elements.step.value);
+  const amount = Number(refs.form.elements.amount.value);
+  let counter = 1;
+  
+  for (let i = 0; i < amount; i++) {
     createPromise(counter, delay).then(onResolve).catch(onReject);
     counter += 1;
-    delay += Number(refs.form.elements.step.value);
+    delay += step;
   }
 }
 

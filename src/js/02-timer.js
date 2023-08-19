@@ -13,10 +13,11 @@ const refs = {
 let timer = null;
 let selectedDates = null;
 refs.startBtn.setAttribute('disabled', 'true');
+
 refs.startBtn.addEventListener('click', (evt) => {
-  onTimerUpdate(selectedDates)
+  onTimerUpdate()
   evt.currentTarget.setAttribute('disabled', 'true');
-  timer = setInterval(() => onTimerUpdate(selectedDates), 1000)
+  timer = setInterval(onTimerUpdate, 1000)
 });
 
 const options = {
@@ -30,6 +31,8 @@ const options = {
 flatpickr("#datetime-picker", options);
 
 function onClose(dates) {
+  clearInterval(timer);
+  
   if (dates[0] - Date.now() < 0) {
     Notiflix.Notify.failure("Please choose a date in the future");
     refs.startBtn.setAttribute('disabled', 'true');
@@ -40,8 +43,9 @@ function onClose(dates) {
   refs.startBtn.removeAttribute('disabled');
 }
 
-function onTimerUpdate(selectedDates) {
+function onTimerUpdate() {
   const time = selectedDates[0] - Date.now();
+
   console.log(time)
   if (time / 1000 < 0) {
     clearInterval(timer);
