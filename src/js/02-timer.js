@@ -1,5 +1,5 @@
-import flatpickr from "flatpickr";
 import Notiflix from "notiflix";
+import flatpickr from "flatpickr";
 import "flatpickr/dist/flatpickr.min.css";
 
 const refs = {
@@ -32,7 +32,7 @@ flatpickr("#datetime-picker", options);
 
 function onClose(dates) {
   clearInterval(timer);
-  
+
   if (dates[0] - Date.now() < 0) {
     Notiflix.Notify.failure("Please choose a date in the future");
     refs.startBtn.setAttribute('disabled', 'true');
@@ -46,7 +46,6 @@ function onClose(dates) {
 function onTimerUpdate() {
   const time = selectedDates[0] - Date.now();
 
-  console.log(time)
   if (time / 1000 < 0) {
     clearInterval(timer);
     return;
