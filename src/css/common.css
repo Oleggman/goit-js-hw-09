@@ -80,7 +80,8 @@ img {
   gap: 10px;
 }
 
-.action-btn {
+.action-btn,
+.promise-btn {
   background: #333333;
   padding: 15px;
   border-radius: 4px;
@@ -151,4 +152,60 @@ img {
 .timer .label {
   padding-top: 5px;
   font-size: 16px;
+}
+
+/**
+  |============================
+  | Task 3
+  |============================
+*/
+
+.form {
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+}
+
+.form input {
+  border: 3px solid #433f3f;
+
+  outline: none;
+  padding: 10px;
+  font-size: 16px;
+  background-color: #d0c8bc;
+  border-radius: 4px;
+}
+
+.label {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.label-text {
+  width: 100%;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  text-align: center;
+  font-family: 'Trebuchet MS', sans-serif;
+  font-size: 20px;
+  color: rgba(255, 255, 255, 0.4);
+  background: #1a1a1a;
+  text-shadow: 0 0 15px rgba(255, 255, 255, 0.5),
+    0 0 10px rgba(255, 255, 255, 0.5);
+  border: 2px solid;
+  border-radius: 4px;
+}
+
+.promise-btn {
+  height: 40px;
+  align-self: flex-end;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  font-size: 18px;
+  padding: 20px 10px;
 }
